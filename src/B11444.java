@@ -1,22 +1,26 @@
 import java.util.*;
 
 public class B11444 {
-    static long mod  = 1000000007;
+    static long mod = 1000000007;
+    //메모이제이션용 맵
     static Map<Long, Long> memo = new HashMap<>();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         long N = sc.nextLong();
-        memo.put(0l, 0l);
-        memo.put(1l, 1l);
-        memo.put(2l, 1l);
-        memo.put(3l, 2l);
-        long answer = 0;
+        //0~3까지 초기화 했음
+        memo.put(0L, 0L);
+        memo.put(1L, 1L);
+        memo.put(2L, 1L);
+        memo.put(3L, 2L);
+        long answer;
         answer = fibo(N);
         System.out.println(Long.valueOf(answer).intValue());
     }
-    public static long fibo(long N){
-        if (memo.containsKey(N)){
+
+    public static long fibo(long N) {
+        //메모이제이션 체크
+        if (memo.containsKey(N)) {
             return memo.get(N);
         }
 
